@@ -1,0 +1,12 @@
+page-single-appareil {
+    .is-on {
+      ion-card-content, ion-card-header, ion-grid {
+        background-color:secondary-light;
+      }
+    }
+    .is-off {
+      ion-card-content, ion-card-header, ion-grid {
+        background-color: danger-light;
+      }
+    }
+  }
