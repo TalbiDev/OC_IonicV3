@@ -3,13 +3,7 @@ import {  NavController, NavParams, ModalController, MenuController } from 'ioni
 import { SingleAppareilPage } from '../single-appareil/single-appareil';
 import { AppareilsService } from '../../services/appareils.services';
 import { Appareil } from '../../models/Appareil';
-
-/**
- * Generated class for the AppareilsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AppareilFormPage } from './appareil-form/AppareilFormPage';
 
 @Component({
   selector: 'page-appareils',
@@ -22,7 +16,8 @@ export class AppareilsPage {
   constructor(
     private appareilsService: AppareilsService,
      private modalCtrl: ModalController,
-     private menuCtrl: MenuController) {
+     private menuCtrl: MenuController,
+     private navCtrl: NavController) {
   }
 
   ionViewWillEnter(){
@@ -38,4 +33,7 @@ export class AppareilsPage {
   onToggleMenu() {
     this.menuCtrl.open();
   }
+  onNewAppareil() {
+    this.navCtrl.push(AppareilFormPage);
+}
 }

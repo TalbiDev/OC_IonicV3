@@ -12,7 +12,9 @@ export class AppareilsService {
                 'Temps de lavage: 2 heures',
                 'Consommation: 173 kWh/an'
             ],
-            isOn: true
+            isOn: true,
+            startTime: '',
+            endTime: ''
         },
         {
             name: 'Télévision',
@@ -20,7 +22,9 @@ export class AppareilsService {
                 'Dimensions: 40 pouces',
                 'Consommation: 22 kWh/an'
             ],
-            isOn: true
+            isOn: true,
+            startTime: '',
+            endTime: ''
         },
         {
             name: 'Ordinateur',
@@ -28,7 +32,12 @@ export class AppareilsService {
                 'Marque: fait maison',
                 'Consommation: 500 kWh/an'
             ],
-            isOn: true
+            isOn: true,
+            startTime: '',
+            endTime: ''
         }
     ];
+    addAppareil(appareil: Appareil) {
+        this.appareilsList.push(appareil);
+      }
 }

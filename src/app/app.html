@@ -1,20 +1,37 @@
 <ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <button ion-button icon-start (click)="onNavigate(tabsPage)">
-          <ion-icon name="power"></ion-icon>
-          Appareils
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+
+      <button ion-item icon-start (click)="onNavigate(tabsPage)" *ngIf="isAuth">
+        <ion-icon name="power"></ion-icon>
+        Appareils
+      </button>
+
+      <button ion-item icon-start (click)="onNavigate(optionsPage)" *ngIf="isAuth">
+        <ion-icon name="options"></ion-icon>
+        Options
+      </button>
+      <button ion-item icon-start (click)="onNavigate(authPage, {mode: 'new'})" *ngIf="!isAuth">
+          <ion-icon name="person-add"></ion-icon>
+          Nouvel utilisateur
         </button>
-        <button ion-button icon-start (click)="onNavigate(optionsPage)">
-          <ion-icon name="options"></ion-icon>
-          Options
+        <button ion-item icon-start (click)="onNavigate(authPage, {mode: 'connect'})" *ngIf="!isAuth">
+          <ion-icon name="person"></ion-icon>
+          Connexion
         </button>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  <ion-nav [root]="tabsPage" #content></ion-nav>
+        <button ion-item icon-start (click) = "onDisconnect()" *ngIf="isAuth">
+            <ion-icon name="exit"></ion-icon>
+            Déconnexion
+          </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+<ion-nav [root]="tabsPage" #content></ion-nav>
